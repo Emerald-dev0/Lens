@@ -1,0 +1,87 @@
+{
+  "name": "@lens-ai/cli",
+  "version": "0.1.0",
+  "description": "Browser intelligence and visual execution layer for AI coding agents — eyes, hands, verification and a camera for the software an agent builds.",
+  "keywords": [
+    "browser",
+    "playwright",
+    "ai-agents",
+    "visual-regression",
+    "screenshots",
+    "mcp",
+    "agent-skills",
+    "e2e",
+    "demo-recording"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emerald-dev0/Lens.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Emerald-dev0/Lens/issues"
+  },
+  "homepage": "https://github.com/Emerald-dev0/Lens#readme",
+  "bin": {
+    "lens": "bin/lens.mjs"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "skills",
+    "docs",
+    "templates",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "node scripts/clean.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "node scripts/lint.mjs",
+    "test": "vitest run --config vitest.config.unit.ts",
+    "test:unit": "vitest run --config vitest.config.unit.ts",
+    "test:e2e": "vitest run --config vitest.config.e2e.ts",
+    "test:watch": "vitest --config vitest.config.unit.ts",
+    "demo": "node scripts/serve-demo.mjs",
+    "lens": "node bin/lens.mjs",
+    "check": "node scripts/check.mjs",
+    "prep:npm": "node scripts/prep-npm.mjs",
+    "prepublishOnly": "npm run build",
+    "test:all": "npm run test:unit && npm run test:e2e"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "commander": "^12.1.0",
+    "pixelmatch": "^5.3.0",
+    "playwright-core": "^1.63.0",
+    "pngjs": "^7.0.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@sparticuz/chromium": "^153.0.0",
+    "@types/node": "^22.20.3",
+    "@types/pngjs": "^6.0.5",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  },
+  "overrides": {}
+}
