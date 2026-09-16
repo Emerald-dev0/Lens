@@ -1,0 +1,27 @@
+# Dependencies and build output
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Lens evidence — generated per project, never committed by default.
+# Baselines are the exception: teams usually DO want those, and `lens init`
+# writes a negated rule for them when the project chooses to track references.
+.lens/
+!.lens/baselines/
+
+# Test and tool caches
+coverage/
+.vitest/
+.scratch/
+
+# Editors and OS noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Local overrides
+.env
+.env.local
+lens.config.local.json
